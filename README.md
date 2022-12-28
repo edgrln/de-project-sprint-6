@@ -38,3 +38,19 @@ sindb/de-pg-cr-af:latest
 	- `localhost:3000/airflow`
 - БД
 	- `jovyan:jovyan@localhost:15432/de`
+
+
+
+docker run \
+-p 3000:3000 \
+-p 3002:3002 \
+-p 15432:5432 \
+--mount src=airflow_sp5,target=/opt/airflow \
+--mount src=lesson_sp5,target=/lessons \
+--mount src=db_sp5,target=/var/lib/postgresql/data \
+--name=de-sprint-5-server-local \
+sindb/de-pg-cr-af:latest
+
+
+login: AirflowAdmin.
+пароль: airflow_pass.

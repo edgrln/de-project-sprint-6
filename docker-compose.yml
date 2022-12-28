@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  metabase:
+    image: metabase/metabase
+    ports:
+      - 3333:3000
+    volumes:
+      - ./plugins/:/plugins
+
+  de-sprint-6:
+    #image: sindb/de-sprint-6:latest
+    build: ./airflow
+    ports:
+      - 3000:3000
+      - 3002:3002
+      - 15432:5432
+    volumes:
+      - mydb:/var/lib/postgresql
+      - mylessons:/lessons
+      - ./dags:/lessons/dags
+      - ./data:/data
+
+
+volumes:
+  mydb:
+  mylessons:
+
+# ssh -NL 3000:localhost:3000 edgar@http://158.160.24.62/
+#`sudo docker compose build`
+#`sudo docker compose up -d`
+#`sudo docker compose down --remove-orphans`
+#`sudo docker kill $(sudo docker ps -q)`
+#`sudo docker rm $(sudo docker ps -a -q)`

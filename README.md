@@ -54,3 +54,12 @@ sindb/de-pg-cr-af:latest
 
 login: AirflowAdmin.
 пароль: airflow_pass.
+
+
+
+# ssh -NL 3000:localhost:3000 edgar@http://158.160.24.62/
+`sudo docker compose build`
+`sudo docker compose up -d`
+`sudo docker compose down --remove-orphans`
+`sudo docker kill $(sudo docker ps -q)`
+`sudo docker rm $(sudo docker ps -a -q)`
